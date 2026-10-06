@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TZK Trendora BD | Premium Fashion</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f6f4ef;
+  color:#171717;
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  padding:20px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(246,244,239,.86);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.logo{
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:3px;
+}
+
+.logo span{
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-weight:500;
+}
+
+nav{
+  display:flex;
+  gap:34px;
+}
+
+nav a{
+  color:#222;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+nav a:hover{
+  opacity:.5;
+}
+
+.header-btn{
+  border:1px solid #222;
+  padding:10px 18px;
+  text-decoration:none;
+  color:#111;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  padding:150px 6% 70px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.hero-text small{
+  letter-spacing:4px;
+  font-size:11px;
+  text-transform:uppercase;
+  color:#777;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,7vw,100px);
+  font-weight:500;
+  line-height:.92;
+  margin:22px 0;
+}
+
+.hero h1 em{
+  font-style:italic;
+}
+
+.hero p{
+  max-width:440px;
+  color:#6b6b6b;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  margin-top:35px;
+}
+
+.btn{
+  padding:15px 25px;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.btn-dark{
+  background:#161616;
+  color:#fff;
+}
+
+.btn-light{
+  border:1px solid #aaa;
+  color:#222;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.hero-image{
+  height:650px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(15%);
+  transition:1s;
+}
+
+.hero-image:hover img{
+  transform:scale(1.04);
+}
+
+.hero-label{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  background:#f6f4ef;
+  padding:15px 20px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+/* ================= MARQUEE ================= */
+
+.marquee{
+  background:#171717;
+  color:#fff;
+  padding:17px 0;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-block;
+  animation:move 18s linear infinite;
+}
+
+.marquee span{
+  margin:0 35px;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+@keyframes move{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ================= COLLECTION ================= */
+
+.collection{
+  padding:110px 6%;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:45px;
+}
+
+.section-head small{
+  color:#888;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:10px;
+}
+
+.section-head h2{
+  font-family:"Playfair Display",serif;
+  font-size:48px;
+  font-weight:500;
+}
+
+.section-head a{
+  color:#222;
+  text-decoration:none;
+  border-bottom:1px solid #222;
+  padding-bottom:5px;
+  font-size:12px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.product{
+  position:relative;
+}
+
+.product-image{
+  height:500px;
+  overflow:hidden;
+  background:#e8e5de;
+  position:relative;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.7s;
+}
+
+.product:hover img{
+  transform:scale(1.06);
+}
+
+.badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:#171717;
+  color:#fff;
+  padding:8px 12px;
+  font-size:9px;
+  letter-spacing:1.5px;
+}
+
+.product-info{
+  padding:18px 2px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.product-name{
+  font-size:14px;
+  font-weight:600;
+}
+
+.product-type{
+  color:#888;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.price{
+  font-size:14px;
+  font-weight:600;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+  padding:110px 6%;
+  background:#171717;
+  color:#fff;
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:80px;
+  align-items:center;
+}
+
+.about small{
+  color:#aaa;
+  letter-spacing:3px;
+  font-size:10px;
+  text-transform:uppercase;
+}
+
+.about h2{
+  font-family:"Playfair Display",serif;
+  font-size:58px;
+  font-weight:500;
+  line-height:1.05;
+  margin-top:20px;
+}
+
+.about h2 em{
+  font-style:italic;
+}
+
+.about p{
+  color:#aaa;
+  line-height:1.9;
+  font-size:14px;
+  max-width:580px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+  padding:90px 6%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.feature{
+  border-top:1px solid #ccc;
+  padding-top:25px;
+}
+
+.feature-number{
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+}
+
+.feature h3{
+  margin:12px 0;
+  font-size:16px;
+}
+
+.feature p{
+  color:#777;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+  margin:30px 6% 100px;
+  min-height:420px;
+  background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("1785691290_L_5.jpeg") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.cta small{
+  letter-spacing:4px;
+  font-size:10px;
+}
+
+.cta h2{
+  font-family:"Playfair Display",serif;
+  font-size:55px;
+  font-weight:500;
+  margin:15px 0 25px;
+}
+
+.cta .btn{
+  display:inline-block;
+  background:white;
+  color:#111;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#111;
+  color:white;
+  padding:65px 6% 30px;
+}
+
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  padding-bottom:50px;
+  border-bottom:1px solid #333;
+}
+
+.footer-logo{
+  font-size:24px;
+  letter-spacing:3px;
+}
+
+.footer-logo span{
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+}
+
+.footer-links{
+  display:flex;
+  gap:55px;
+}
+
+.footer-links a{
+  color:#aaa;
+  text-decoration:none;
+  font-size:12px;
+  margin-bottom:12px;
+  display:block;
+}
+
+.footer-links a:hover{
+  color:#fff;
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  padding-top:25px;
+  color:#666;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.ceo{
+  margin-top:15px;
+  color:#777;
+  font-size:11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  header{
+    padding:17px 5%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .header-btn{
+    padding:8px 12px;
+    font-size:9px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:125px 5% 55px;
+    gap:35px;
+  }
+
+  .hero h1{
+    font-size:60px;
+  }
+
+  .hero-image{
+    height:500px;
+  }
+
+  .section-head{
+    display:block;
+  }
+
+  .section-head h2{
+    font-size:40px;
+    margin:12px 0 20px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .product-image{
+    height:470px;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+    gap:35px;
+    padding:80px 5%;
+  }
+
+  .about h2{
+    font-size:45px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+    padding:70px 5%;
+    gap:40px;
+  }
+
+  .cta{
+    margin:10px 5% 70px;
+    min-height:380px;
+  }
+
+  .cta h2{
+    font-size:43px;
+  }
+
+  .footer-top{
+    display:block;
+  }
+
+  .footer-links{
+    margin-top:40px;
+    gap:30px;
+  }
+
+  .footer-bottom{
+    display:block;
+    line-height:2;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+  <div class="logo">TZK <span>Trendora</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#collection">Collection</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a class="header-btn" href="#collection">Shop Now</a>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-text">
+    <small>Premium Fashion • Bangladesh</small>
+
+    <h1>
+      Wear<br>
+      <em>Your</em><br>
+      Story.
+    </h1>
+
+    <p>
+      Discover carefully selected fashion pieces designed
+      for people who want to look different without trying too hard.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#collection" class="btn btn-dark">Explore Collection</a>
+      <a href="#about" class="btn btn-light">Our Story</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="1785691290_L_1.jpeg" alt="TZK Trendora Fashion">
+    <div class="hero-label">TZK / NEW COLLECTION</div>
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>TZK Trendora BD</span>
+    <span>Premium Everyday Fashion</span>
+    <span>Designed For Your Story</span>
+    <span>TZK Trendora BD</span>
+    <span>Premium Everyday Fashion</span>
+    <span>Designed For Your Story</span>
+  </div>
+</div>
+
+
+<!-- COLLECTION -->
+
+<section class="collection" id="collection">
+
+  <div class="section-head">
+    <div>
+      <small>Our Selection</small>
+      <h2>Latest Pieces</h2>
+    </div>
+
+    <a href="#contact">View All</a>
+  </div>
+
+  <div class="products">
+
+    <article class="product">
+      <div class="product-image">
+        <span class="badge">BEST SELLER</span>
+        <img src="1785691290_L_1.jpeg" alt="Acid Wash Drop Shoulder T-Shirt">
+      </div>
+
+      <div class="product-info">
+        <div>
+          <div class="product-name">Acid Wash Drop Shoulder</div>
+          <div class="product-type">Premium T-Shirt</div>
+        </div>
+        <div class="price">৳670</div>
+      </div>
+    </article>
+
+
+    <article class="product">
+      <div class="product-image">
+        <span class="badge">NEW</span>
+        <img src="1785691290_L_3.jpeg" alt="Emirates Fly Better T-Shirt">
+      </div>
+
+      <div class="product-info">
+        <div>
+          <div class="product-name">Emirates Fly Better</div>
+          <div class="product-type">Premium T-Shirt</div>
+        </div>
+        <div class="price">৳670</div>
+      </div>
+    </article>
+
+
+    <article class="product">
+      <div class="product-image">
+        <span class="badge">TRENDING</span>
+        <img src="1785691290_L_5.jpeg" alt="Hala Madrid T-Shirt">
+      </div>
+
+      <div class="product-info">
+        <div>
+          <div class="product-name">Hala Madrid</div>
+          <div class="product-type">Premium T-Shirt</div>
+        </div>
+        <div class="price">৳670</div>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div>
+    <small>Who We Are</small>
+
+    <h2>
+      Fashion that<br>
+      feels <em>personal.</em>
+    </h2>
+  </div>
+
+  <div>
+    <p>
+      TZK Trendora BD is built around a simple idea:
+      your clothes should feel like you.
+      We focus on clean designs, comfortable fits and
+      modern pieces that work beyond a single trend.
+    </p>
+
+    <p class="ceo">
+      CEO: MD.TAHMID ZARIF KHAN
+    </p>
+  </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+  <div class="feature">
+    <div class="feature-number">01</div>
+    <h3>Premium Quality</h3>
+    <p>
+      Carefully selected materials and attention to detail
+      for a better everyday experience.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-number">02</div>
+    <h3>Modern Design</h3>
+    <p>
+      Minimal, stylish and easy-to-wear pieces made for
+      today's fashion.
+    </p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-number">03</div>
+    <h3>Made For You</h3>
+    <p>
+      Fashion should express personality—not hide it.
+      Choose the piece that tells your story.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div>
+    <small>YOUR NEXT LOOK</small>
+
+    <h2>Make it yours.</h2>
+
+    <a href="#contact" class="btn">Order Now</a>
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+  <div class="footer-top">
+
+    <div>
+      <div class="footer-logo">
+        TZK <span>Trendora BD</span>
+      </div>
+
+      <div class="ceo">
+        Premium Fashion • Bangladesh
+      </div>
+    </div>
+
+    <div class="footer-links">
+
+      <div>
+        <a href="#home">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+      </div>
+
+      <div>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+        <a href="#">Instagram</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 TZK Trendora BD</div>
+    <div>ALL RIGHTS RESERVED</div>
+  </div>
+
+</footer>
+
+</body>
+</html>
